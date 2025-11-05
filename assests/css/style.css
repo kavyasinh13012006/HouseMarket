@@ -48,9 +48,11 @@ img {
   border: 1px solid white;
   color: white;
   background-color: transparent;
+  transition: all 0.3s ease-in-out;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-secondery:hover {
   transform: scale(0.95);
 }
 
@@ -833,20 +835,209 @@ input[type="search"]::-webkit-search-results-decoration {
 /* video banner sec */
 
 .video-banner-sec {
-  min-height: 674px;
-  background-image: url(../images/section/video-banner.png);
+  --paddinf-tb: 100px;
+  background-image: linear-gradient(180deg, transparent, #212121),
+    url(../images/section/video-banner.png);
   max-width: 1420px;
   border-radius: 16px;
   margin-inline: auto;
   margin-bottom: 100px;
   background-position: 50%;
   background-size: cover;
-  padding-block: 100px;
+  padding-block: var(--paddinf-tb);
 }
 
 .video-banner-wrapper {
   display: flex;
+  justify-content: end;
+  height: calc(674px - 2 * var(--paddinf-tb));
+  flex-direction: column;
+}
+
+.video-banner-item {
+  display: flex;
   justify-content: space-between;
-  margin-top: auto;
+  align-items: center;
+}
+
+.video-banner-title {
+  font-size: 44px;
+  font-weight: 500;
+  color: white;
+  line-height: 1.25em;
+  max-width: 420px;
+}
+
+.video-banner-right-col {
+  max-width: 460px;
+}
+
+.video-banner-right-col .video-banner-dec {
+  color: #eee;
+  margin-bottom: 24px;
+  line-height: 1.5em;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 1023.99px) {
+  .video-banner-item {
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+  }
+
+  .video-banner-right-col,
+  .video-banner-title {
+    max-width: 100%;
+  }
+
+  .video-banner-sec {
+    --paddinf-tb: 64px;
+  }
+
+  .video-banner-wrapper {
+    height: calc(550px - 2 * var(--paddinf-tb));
+  }
+}
+
+@media only screen and (max-width: 766.99px) {
+  .video-banner-sec {
+    --paddinf-tb: 48px;
+  }
+
+  .video-banner-wrapper {
+    height: calc(450px - 2 * var(--paddinf-tb));
+  }
+
+  .video-banner-title {
+    font-size: 32px;
+  }
+}
+
+@media only screen and (max-width: 766.99px) {
+  .video-banner-right-col .btn {
+    width: 100%;
+  }
+
+  .video-banner-title {
+    font-size: 28px;
+  }
+}
+
+/* featur sec */
+
+.featur-sec {
+  padding-block: 200px;
+}
+
+.featur-main-title {
+  font-size: 44px;
+  margin-bottom: 8px;
+  color: #212121;
+  font-weight: 500;
+  text-align: center;
+}
+
+.featur-main-dec {
+  margin-inline: auto;
+  max-width: 540px;
+  line-height: 1.5em;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.featur-content-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.featur-content-details {
+  position: relative;
+  padding: 40px;
+  min-height: 636px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.featur-content-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
+  transition: all 0.3s ease;
+}
+
+.featur-content-details:hover .featur-content-img {
+  transform: scale(1.1);
+}
+
+.featur-content-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.featur-detail-wrapper {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.featur-detail-title {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.featur-detail-dec {
+  color: #eee;
+  margin-bottom: 16px;
+  line-height: 1.5em;
+}
+
+.top-detail-wrapper {
+  display: flex;
+  color: white;
+  align-items: center;
+  gap: 6px;
+}
+
+.item-bg-overlay {
+  background-image: linear-gradient(180deg, #212121, transparent);
+  opacity: 0.7;
+  position: absolute;
+  inset: 0%;
+}
+
+.detail-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.featur-bottom-detail {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: white;
+  padding: 16px;
+  gap: 24px 0;
+  border-radius: 16px;
+}
+
+.bottom-detail-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #212121;
+}
+
+.detail-icon svg {
+  color: black;
+  width: 20px;
+  height: 20px;
 }
